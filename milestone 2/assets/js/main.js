@@ -19,7 +19,7 @@ let app = new Vue ({
         userRequest: "",
         movies: [],
         tvSeries: [],
-        
+        flag: `"https://flagcdn.com/h20/ + ${this.movies.original_language} +.png"`       
     },
  
     methods: {
@@ -32,10 +32,9 @@ let app = new Vue ({
                     let stars = Math.ceil(this.movies[key].vote_average / 2); 
                     // console.log(stars); 
                     this.movies[key].vote_average = stars;    
-
                 }
-           
             })
+
             .catch(error => {
                 console.log("Error: " + error) 
             })
@@ -49,7 +48,7 @@ let app = new Vue ({
                 console.log("Error: " + error) 
             })
             
-        
+            
 
             
         }

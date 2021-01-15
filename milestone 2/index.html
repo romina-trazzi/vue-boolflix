@@ -37,6 +37,7 @@
                         <li> {{ movie.vote_average }} 
                             <i v-for ="star in movie.vote_average" class="fas fa-star"></i> 
                             <i v-for = "star in (5 - movie.vote_average)" class="far fa-star"></i>
+                            <span> <img v-bind:src="flag" alt="Bandiera"></span>
                         </li>
                         <br>
                     </ul>
