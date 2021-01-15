@@ -6,7 +6,8 @@ Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezz
 Trasformiamo poi la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, 
 gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API (le flag non ci sono in FontAwesome).
 
-Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query, sia le serie tv, stando attenti ad avere alla fine dei valori simili (le serie e i film hanno campi nel JSON di risposta diversi, simili ma non sempre identici)
+Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query, sia le serie tv,
+stando attenti ad avere alla fine dei valori simili (le serie e i film hanno campi nel JSON di risposta diversi, simili ma non sempre identici)
 Qui un esempio di chiamata per le serie tv: 
 https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs */
 
@@ -16,7 +17,8 @@ let app = new Vue ({
     data: {
         userRequest: "",
         movies: [],
-        tvSeries: []
+        tvSeries: [],
+        
     },
  
     methods: {
@@ -24,28 +26,38 @@ let app = new Vue ({
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`) // richiesta film
             .then(response => {  
                 this.movies = response.data.results;
+                
+                for (let key in this.movies) {
+                    let stars = Math.ceil(this.movies[key].vote_average / 2); 
+                    // console.log(stars); 
+                    this.movies[key].vote_average = stars;    
+                }
+           
             })
             .catch(error => {
                 console.log("Error: " + error) 
             })
 
-            for (let i = 0; i < this.movies.length; i++) {
-                let stars = this.movies[i].vote_average;
-                stars = Math.ceil(stars);
-                console.log(stars);    
-            };
+            
+            axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`) // richiesta serie tv       
+            .then(response => {  
+                this.tvSeries = response.data.results;
+            })
+            .catch(error => {
+                console.log("Error: " + error) 
+            })
+            
+        
 
             
         }
     },
-    
-    mounted(){
-        
-    }
+    mounted(){}
+
+
 })
 
 
-// axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`) // richiesta serie tv       
 
 
 

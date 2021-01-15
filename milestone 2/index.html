@@ -30,12 +30,24 @@
                 </div>
                 <div>
                     <ul v-for ="(movie, index) in movies">
-                        <li> <b>{{ index }}</b> {{ movie.title }} 
-                        <br> {{ movie.original_title }} 
-                        <br> {{ movie.original_language }} 
-                        <br> {{ movie.vote_average }} <i class="fas fa-star"></i></li>
+                        <li> {{ index }} </li>
+                        <li> {{ movie.title }} </li>
+                        <li> {{ movie.original_title }} </li>       
+                        <li> {{ movie.original_language }} </li> 
+                        <li> {{ movie.vote_average }} <i class="fas fa-star"></i></li>
                         <br>
                     </ul>
+
+                    <h2> TV Series </h2>
+
+                   <!-- <ul v-for ="(tvSerie, index) in tvSeries">
+                        <li> {{ index }} </li>
+                        <li> {{ movie.title }} </li>
+                        <li> {{ movie.original_title }} </li>       
+                        <li> {{ movie.original_language }} </li> 
+                        <li> {{ vote }} <i class="fas fa-star"></i></li>
+                        <br>
+                    </ul> -->
                 </div>
             </div>
         </div>
