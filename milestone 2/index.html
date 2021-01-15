@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <!-- meta properties -->
+        <meta charset="utf-8">
+        <meta name="author" content="Romina Trazzi">
+        <meta name="description" content="Esercizio dischi musicali con Axios e Vue">
+        <meta name="keywords" content="javascript, vue, disc, axios, music">
+        <!-- / meta properties -->
+        
+        <!--Axios CDN -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- / Axios CDN -->
+        
+        <title>Ex-Boolflix</title>
+        
+        <!-- Google Fonts + FontAwesome + CSS stylesheet -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap" >
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- / Google Fonts + FontAwesome + CSS stylesheet -->
+
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <div class="searchbar">
+                    <input type="text" placeholder="Ricerca qui il tuo film preferito" v-model="userRequest">
+                    <button v-on:click="onClickButton">Ricerca</button>
+                </div>
+                <div>
+                    <ul v-for ="(movie, index) in movies">
+                        <li> <b>{{ index }}</b> {{ movie.title }} 
+                        <br> {{ movie.original_title }} 
+                        <br> {{ movie.original_language }} 
+                        <br> {{ movie.vote_average }} <i class="fas fa-star"></i></li>
+                        <br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JS + JQuery + Vue development version, includes helpful console warnings -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="assets/js/main.js"> </script>
+        <!-- / JS + Vue development version, includes helpful console warnings -->
+    </body>
+</html>
+
