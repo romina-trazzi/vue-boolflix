@@ -19,7 +19,6 @@ let app = new Vue ({
         onClickButton: function() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=itIT&query=${this.userRequest}&include_adult=false`)
             .then(response => {  
-                // console.log(response);
                 this.movies = response.data.results;
                 console.log(this.movies);
             })
