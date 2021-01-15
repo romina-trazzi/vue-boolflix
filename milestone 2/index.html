@@ -33,11 +33,10 @@
                         <li> {{ index }} </li>
                         <li> {{ movie.title }} </li>
                         <li> {{ movie.original_title }} </li>       
-                        <li> {{ movie.original_language }} </li> 
-                        <li> {{ movie.vote_average }} 
+                        <li> <img v-bind:src="'https://flagcdn.com/h20/' + movie.original_language + '.png' " alt="Bandiera">  </li> 
+                        <li>
                             <i v-for ="star in movie.vote_average" class="fas fa-star"></i> 
                             <i v-for = "star in (5 - movie.vote_average)" class="far fa-star"></i>
-                            <span> <img v-bind:src="flag" alt="Bandiera"></span>
                         </li>
                         <br>
                     </ul>

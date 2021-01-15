@@ -19,7 +19,6 @@ let app = new Vue ({
         userRequest: "",
         movies: [],
         tvSeries: [],
-        flag: `"https://flagcdn.com/h20/ + ${this.movies.original_language} +.png"`       
     },
  
     methods: {
@@ -31,7 +30,34 @@ let app = new Vue ({
                 for (let key in this.movies) {
                     let stars = Math.ceil(this.movies[key].vote_average / 2); 
                     // console.log(stars); 
-                    this.movies[key].vote_average = stars;    
+                    this.movies[key].vote_average = stars; 
+
+                    // eccezioni linguistiche
+                    
+                    if (this.movies[key].original_language == "en") {   
+                        this.movies[key].original_language = "gb";
+                    } else if 
+                        (this.movies[key].original_language == "zh") {
+                        this.movies[key].original_language = "cn"
+                    } else if
+                        (this.movies[key].original_language == "ko") {
+                        this.movies[key].original_language = "kr"
+                    } else if 
+                        (this.movies[key].original_language == "vi") {
+                        this.movies[key].original_language = "vn";
+                    } else if 
+                        (this.movies[key].original_language == "et") {
+                        this.movies[key].original_language = "ee";
+                    } else if
+                        (this.movies[key].original_language == "ja") {
+                        this.movies[key].original_language = "jp"
+                    } else if 
+                        (this.movies[key].original_language == "da") {
+                        this.movies[key].original_language = "dk"
+                    } else if 
+                        (this.movies[key].original_language == "hu") {
+                        this.movies[key].original_language = "ua"
+                    }
                 }
             })
 
