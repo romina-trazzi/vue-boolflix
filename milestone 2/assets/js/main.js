@@ -31,8 +31,7 @@ let app = new Vue ({
             .then(response => {
                 this.movies = response[0].data.results; // richiesta film - dati in array
                 this.tvSeries = response[1].data.results; // richiesta tvSeries - dati in array
-                
-            
+
                 // gestione delle stelle
                 for (let key in this.movies) {
                     let stars = Math.ceil(this.movies[key].vote_average / 2); 
@@ -63,11 +62,41 @@ let app = new Vue ({
                     } else if 
                         (this.movies[key].original_language == "hu") {
                         this.movies[key].original_language = "ua"
+                    } 
+
+                    for (let key in this.tvSeries) {
+                        let stars = Math.ceil(this.tvSeries[key].vote_average / 2); 
+                        // console.log(stars); 
+                        this.tvSeries[key].vote_average = stars;
                     }
-                
-                }
+
+                        // eccezioni linguistiche nelle serie tv
+                        if (this.tvSeries[key].original_language == "en") {   
+                        this.tvSeries[key].original_language = "gb";
+                    } else if 
+                        (this.tvSeries[key].original_language == "zh") {
+                        this.tvSeries[key].original_language = "cn"
+                    } else if
+                        (this.tvSeries[key].original_language == "ko") {
+                        this.tvSeries[key].original_language = "kr"
+                    } else if 
+                        (this.tvSeries[key].original_language == "vi") {
+                        this.tvSeries[key].original_language = "vn";
+                    } else if 
+                        (this.tvSeries[key].original_language == "et") {
+                        this.tvSeries[key].original_language = "ee";
+                    } else if
+                        (this.tvSeries[key].original_language == "ja") {
+                        this.tvSeries[key].original_language = "jp"
+                    } else if 
+                        (this.tvSeries[key].original_language == "da") {
+                        this.tvSeries[key].original_language = "dk"
+                    } else if 
+                        (this.tvSeries[key].original_language == "hu") {
+                        this.tvSeries[key].original_language = "ua"
+                    } 
+                } 
             })
-    
 
             .catch(error => {
                 console.log("Error: " + error) 
