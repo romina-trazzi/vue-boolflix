@@ -29,6 +29,9 @@
                     <button v-on:click="onClickButton">Ricerca</button>
                 </div>
                 <div>
+
+                <!-- Blocco film -->
+                <section>  
                     <ul v-for ="(movie, index) in movies">
                         <li> {{ index }} </li>
                         <li> {{ movie.title }} </li>
@@ -40,17 +43,25 @@
                         </li>
                         <br>
                     </ul>
+                </section>
+                <!-- / Blocco film -->
 
+                <!-- Blocco serieTV -->
+                <section>
                     <h2> TV Series </h2>
-
-                   <!-- <ul v-for ="(tvSerie, index) in tvSeries">
+                    <ul v-for ="(tvSerie, index) in tvSeries">
                         <li> {{ index }} </li>
-                        <li> {{ movie.title }} </li>
-                        <li> {{ movie.original_title }} </li>       
-                        <li> {{ movie.original_language }} </li> 
-                        <li> {{ vote }} <i class="fas fa-star"></i></li>
+                        <li> {{ tvSerie.name }} </li>
+                        <li> {{ tvSerie.original_name }} </li>       
+                        <li> <img v-bind:src="'https://flagcdn.com/h20/' + tvSerie.original_language + '.png' " alt="Bandiera">  </li>  
+                        <li>
+                            <i v-for ="star in tvSerie.vote_average" class="fas fa-star"></i> 
+                            <i v-for = "star in (5 - tvSerie.vote_average)" class="far fa-star"></i>
+                        </li>
                         <br>
-                    </ul> -->
+                    </ul> 
+                </section>
+                <!-- Blocco serieTV -->
                 </div>
             </div>
         </div>

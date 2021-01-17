@@ -23,17 +23,23 @@ let app = new Vue ({
  
     methods: {
         onClickButton: function() {
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`) // richiesta film
-            .then(response => {  
-                this.movies = response.data.results;
+            axios.all([
+                axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`), 
+                axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`)
+            ])
+
+            .then(response => {
+                this.movies = response[0].data.results; // richiesta film - dati in array
+                this.tvSeries = response[1].data.results; // richiesta tvSeries - dati in array
                 
+            
+                // gestione delle stelle
                 for (let key in this.movies) {
                     let stars = Math.ceil(this.movies[key].vote_average / 2); 
                     // console.log(stars); 
-                    this.movies[key].vote_average = stars; 
+                    this.movies[key].vote_average = stars;
 
-                    // eccezioni linguistiche
-                    
+                    // eccezioni linguistiche nei film
                     if (this.movies[key].original_language == "en") {   
                         this.movies[key].original_language = "gb";
                     } else if 
@@ -58,33 +64,20 @@ let app = new Vue ({
                         (this.movies[key].original_language == "hu") {
                         this.movies[key].original_language = "ua"
                     }
+                
                 }
             })
+    
 
             .catch(error => {
                 console.log("Error: " + error) 
             })
-
-            
-            axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e711a9a7f93bd4ad57163f1845d0059f&language=it_IT&query=${this.userRequest}&include_adult=false`) // richiesta serie tv       
-            .then(response => {  
-                this.tvSeries = response.data.results;
-            })
-            .catch(error => {
-                console.log("Error: " + error) 
-            })
-            
-            
-
-            
+        
         }
-    },
-    mounted(){}
+    }
+  
 
 
 })
-
-
-
 
 
