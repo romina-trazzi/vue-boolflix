@@ -33,20 +33,18 @@
                     </div>
                 </header>
 
-
                 <main>
-                    <!-- Blocco film -->
                     <section>  
                         <div>
-                            <div v-for ="(movie) in movies" class="row_wrapper">
+                            <div v-for ="(movie) in movies" class="wrapper">
                                 <img v-bind:src="'https://image.tmdb.org/t/p/w342' + movie.backdrop_path" alt="Copertina del film" class="card"> 
                             </div>
-                            <div v-for ="(tvSerie) in tvSeries" class="row_wrapper"> 
+                            <div v-for ="(tvSerie) in tvSeries" class="wrapper"> 
                                 <img v-bind:src="'https://image.tmdb.org/t/p/w342' + tvSerie.backdrop_path" alt="Copertina del telefilm" class="card">
                             </div> 
                         </div>
                     </section>    
-                    <!-- / Blocco film -->  
+                     
 
 
 
