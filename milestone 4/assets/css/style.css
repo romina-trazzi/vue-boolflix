@@ -37,7 +37,7 @@ header img {
 }
 
 input {
-    width: 300px;
+    width: 150px;
     
 }
 
@@ -83,15 +83,12 @@ img {
 
 /* / Layout Card */
 
-
-
 /* Hoover on card */
 .card > img:hover {
     filter: brightness(0%);
     -webkit-filter: brightness(0%);
 }
 /* / Hoover on card */
-
 
 /* Dati da Javascript */
 
@@ -103,7 +100,6 @@ img {
 .fas, .far {
     color: rgba(255, 187, 0, 0.9);
 }
-
 
 /* Dati da Javascript */
 
