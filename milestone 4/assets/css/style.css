@@ -14,7 +14,10 @@ body {
     width: 100%; 
 }
 
-/* HEADER */
+
+/*=============================================
+        =            HEADER            =
+=============================================*/
 
 header {
     height: 100px;
@@ -44,9 +47,13 @@ header img, input {
 
 }
 
-/* / HEADER */
+/*=====  End of Header  ======*/
 
-/* MAIN */
+
+/*=============================================
+        =           MAIN            =
+=============================================*/
+
 
 /* Layout Card */
 
@@ -76,12 +83,17 @@ img {
 
 /* / Layout Card */
 
+
+
 /* Hoover on card */
 .card > img:hover {
     filter: brightness(0%);
     -webkit-filter: brightness(0%);
 }
 /* / Hoover on card */
+
+
+/* Dati da Javascript */
 
 .flag {
     width: 20px;
@@ -91,3 +103,9 @@ img {
 .fas, .far {
     color: rgba(255, 187, 0, 0.9);
 }
+
+
+/* Dati da Javascript */
+
+
+/*=====  End of Main  ======*/

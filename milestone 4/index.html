@@ -24,6 +24,8 @@
     <body>
         <div id="app">
             <div class="container">
+
+                <!-- Barra nera -->
                 <header>
                     <div class="intro">
                         <img class="logo" src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo-700x394.png">
@@ -32,9 +34,12 @@
                         </div>
                     </div>
                 </header>
+                <!-- Barra nera -->
 
                 <main>
-                    <div>
+
+                    <!-- Blocco film -->
+                    <section>
                         <div v-for ="(movie) in movies" class="wrapper">
                             <div class="card">
                                 <img v-bind:src="'https://image.tmdb.org/t/p/w342' + movie.backdrop_path" alt="Copertina del film"> 
@@ -51,7 +56,11 @@
                                 <div> <b>Overview:</b> {{ movie.overview }} </div>
                             </div>
                         </div>
+                    </section>
+                    <!-- / Blocco film -->
 
+                    <!-- Blocco serieTv -->
+                    <section>
                         <div v-for ="(tvSerie) in tvSeries" class="wrapper"> 
                             <div class="card">
                                 <img v-bind:src="'https://image.tmdb.org/t/p/w342' + tvSerie.backdrop_path" alt="Copertina del telefilm">
@@ -68,10 +77,13 @@
                                 <div> <b>Overview:</b> {{ tvSerie.overview }} </div>
                             </div> 
                         </div>
-                    </div>
-                </main>            
-            </div>
-        </div>
+                    </section>
+                    <!-- / Blocco serie Tv -->
+
+                </main>
+                            
+            </div> <!-- / Container -->
+        </div> <!-- / App -->
         
         <!-- JS + JQuery + Vue development version, includes helpful console warnings -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
