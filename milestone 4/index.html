@@ -38,30 +38,34 @@
                         <div v-for ="(movie) in movies" class="wrapper">
                             <div class="card">
                                 <img v-bind:src="'https://image.tmdb.org/t/p/w342' + movie.backdrop_path" alt="Copertina del film"> 
-                                <div> {{ movie.title }} </div>
-                                <div> {{ movie.original_title }} </div>
+                                <div> <b>Titolo:</b> {{ movie.title }} </div>
+                                <div> <b>Titolo originale:</b> {{ movie.original_title }} </div>
                                 <div> 
-                                    <img v-bind:src="'https://flagcdn.com/h20/' + movie.original_language + '.png' " alt="Bandiera">
+                                    <img v-bind:src="'https://flagcdn.com/h20/' + movie.original_language + '.png' " alt="Bandiera" class="flag">
                                 </div>
                                 <div>
+                                    <b>Voto:</b>
                                     <i v-for ="star in movie.vote_average" class="fas fa-star"></i> 
                                     <i v-for = "star in (5 - movie.vote_average)" class="far fa-star"></i>
                                 </div> 
+                                <div> <b>Overview:</b> {{ movie.overview }} </div>
                             </div>
                         </div>
 
                         <div v-for ="(tvSerie) in tvSeries" class="wrapper"> 
                             <div class="card">
                                 <img v-bind:src="'https://image.tmdb.org/t/p/w342' + tvSerie.backdrop_path" alt="Copertina del telefilm">
-                                <div> {{ tvSerie.name }} </div>
-                                <div> {{ tvSerie.original_name }} </div>       
+                                <div> <b>Titolo:</b> {{ tvSerie.name }} </div>
+                                <div> <b>Titolo originale:</b> {{ tvSerie.original_name }} </div>       
                                 <div> 
-                                    <img v-bind:src="'https://flagcdn.com/h20/' + tvSerie.original_language + '.png'" alt="Bandiera">
+                                    <img v-bind:src="'https://flagcdn.com/h20/' + tvSerie.original_language + '.png'" alt="Bandiera" class="flag">
                                 </div>  
                                 <div>
+                                    <b>Voto:</b>
                                     <i v-for ="star in tvSerie.vote_average" class="fas fa-star"></i> 
                                     <i v-for = "star in (5 - tvSerie.vote_average)" class="far fa-star"></i> 
                                 </div>
+                                <div> <b>Overview:</b> {{ tvSerie.overview }} </div>
                             </div> 
                         </div>
                     </div>
