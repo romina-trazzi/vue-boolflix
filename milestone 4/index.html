@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <!-- meta properties -->
+        <meta charset="utf-8">
+        <meta name="author" content="Romina Trazzi">
+        <meta name="description" content="Esercizio dischi musicali con Axios e Vue">
+        <meta name="keywords" content="javascript, vue, disc, axios, music">
+        <!-- / meta properties -->
+        
+        <!--Axios CDN -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- / Axios CDN -->
+        
+        <title>Ex-Boolflix</title>
+        
+        <!-- Google Fonts + FontAwesome + CSS stylesheet -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap" >
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- / Google Fonts + FontAwesome + CSS stylesheet -->
+
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <header>
+                    <div class="intro">
+                        <img class="logo" src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo-700x394.png">
+                        <div class="searchbar">
+                            <input type="text" placeholder="Ricerca qui il tuo film preferito" v-model="userRequest" v-on:keyup.enter="onClickButton">
+                        </div>
+                    </div>
+                </header>
+
+
+                <main>
+                    <!-- Blocco film -->
+                    <section>  
+                        <div>
+                            <div v-for ="(movie) in movies" class="row_wrapper">
+                                <img v-bind:src="'https://image.tmdb.org/t/p/w342' + movie.backdrop_path" alt="Copertina del film" class="card"> 
+                            </div>
+                            <div v-for ="(tvSerie) in tvSeries" class="row_wrapper"> 
+                                <img v-bind:src="'https://image.tmdb.org/t/p/w342' + tvSerie.backdrop_path" alt="Copertina del telefilm" class="card">
+                            </div> 
+                        </div>
+                    </section>    
+                    <!-- / Blocco film -->  
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    <!-- Blocco film -->
+                   <!--
+                    <section>  
+                        <div v-for ="(movie, index) in movies">
+                            <div> <img v-bind:src="'https://image.tmdb.org/t/p/w342' + movie.backdrop_path" alt="Copertina del film"></div> 
+                            <div> {{ movie.title }} </div>
+                            <div> {{ movie.original_title }} </div>       
+                            <div> <img v-bind:src="'https://flagcdn.com/h20/' + movie.original_language + '.png' " alt="Bandiera"></div> 
+                            <div>
+                                <i v-for ="star in movie.vote_average" class="fas fa-star"></i> 
+                                <i v-for = "star in (5 - movie.vote_average)" class="far fa-star"></i>
+                            </div>
+                            <br>
+                        </div>
+                    </section>
+                -->
+                    <!-- / Blocco film -->
+
+                    <!-- Blocco serieTV -->
+                    <!--
+                    <section>
+                        <div v-for ="(tvSerie, index) in tvSeries">
+                            <div> <img v-bind:src="'https://image.tmdb.org/t/p/w342' + tvSerie.backdrop_path" alt="Copertina del telefilm"></div> 
+                            <div> {{ tvSerie.name }} </div>
+                            <div> {{ tvSerie.original_name }} </div>       
+                            <div> <img v-bind:src="'https://flagcdn.com/h20/' + tvSerie.original_language + '.png'" alt="Bandiera"></div>  
+                            <div>
+                                <i v-for ="star in tvSerie.vote_average" class="fas fa-star"></i> 
+                                <i v-for = "star in (5 - tvSerie.vote_average)" class="far fa-star"></i> 
+                            </div>
+                            <br>
+                        </div> 
+                    </section> -->
+                    <!-- Blocco serieTV --> 
+                
+                </main>
+            </div>
+        </div>
+        
+        <!-- JS + JQuery + Vue development version, includes helpful console warnings -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="assets/js/main.js"> </script>
+        <!-- / JS + JQuery + Vue development version, includes helpful console warnings -->
+    </body>
+</html>
+
